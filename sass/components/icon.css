@@ -1,0 +1,22 @@
+/*.fas{
+        top: 0;
+        left: 0;
+        padding: 5px;
+        font-size: $texte-zoom-2;
+        background: -webkit-linear-gradient(
+            0.5turn, 
+            $couleur-primaire,
+            $couleur-secondaire
+        );
+        background-repeat: no-repeat;
+        background-size: 105%;
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        cursor: pointer;
+    &:hover{
+            animation: flash 1s ease-in-out infinite;
+            animation-fill-mode: forwards;
+    }
+}*/
+/*# sourceMappingURL=icon.css.map */

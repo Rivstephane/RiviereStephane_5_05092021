@@ -1,16 +1,25 @@
 {
-  "name": "orinoco-backend",
+  "name": "rivierestephane_5_05092021",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass --watch sass/main.scss:./css/style.css --style expanded"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rivstephane/RiviereStephane_5_05092021.git"
+  },
+  "author": "Riviere Stephane",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.4",
     "node": "^16.6.1",
     "uuid": "^3.3.2"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/Rivstephane/RiviereStephane_5_05092021/issues"
+  },
+  "homepage": "https://github.com/Rivstephane/RiviereStephane_5_05092021#readme"
 }

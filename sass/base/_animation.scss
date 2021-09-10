@@ -1,0 +1,45 @@
+
+@keyframes loading-spinner {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+}
+@keyframes translationy{
+    from{
+        transform: translatey(999px);
+    }
+    to {
+        transform: translatey(0);
+    }
+}
+@keyframes progressive {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@keyframes -progressive{
+    from {
+        opacity:1;
+    }
+    to {
+        opacity:0;
+    }
+}
+@keyframes flash{
+    from {
+        opacity:1;
+    }
+    50% {
+        opacity:0.5;
+    }
+    to{
+        opacity:1;
+    }
+
+}
