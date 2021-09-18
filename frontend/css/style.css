@@ -40,6 +40,15 @@ a, p {
   font-weight: bold;
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 5px;
+  padding: auto;
+}
+
 @keyframes loading-spinner {
   0% {
     opacity: 1;
@@ -223,6 +232,125 @@ footer {
 .description {
   padding: 5px;
   color: black;
+}
+
+#tableauxCommandeproduit {
+  overflow: hidden;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+}
+#tableauxCommandeproduit .tabCommande, #tableauxCommandeproduit #tabCommande {
+  border: 2px solid #8c8c8c;
+  margin: 0;
+  overflow: hidden;
+  height: 100px;
+  display: flex;
+  justify-content: stretch;
+  align-items: center;
+}
+#tableauxCommandeproduit .tabCommande .imageurl, #tableauxCommandeproduit #tabCommande .imageurl {
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  display: flex;
+  width: 24%;
+}
+#tableauxCommandeproduit .tabCommande .imageurl img, #tableauxCommandeproduit #tabCommande .imageurl img {
+  max-width: 180px;
+}
+#tableauxCommandeproduit .tabCommande .name, #tableauxCommandeproduit #tabCommande .name {
+  justify-content: center;
+  text-align: center;
+  width: 24%;
+}
+#tableauxCommandeproduit .tabCommande .quantiter, #tableauxCommandeproduit #tabCommande .quantiter {
+  justify-content: center;
+  text-align: center;
+  width: 24%;
+}
+#tableauxCommandeproduit .tabCommande .prix, #tableauxCommandeproduit #tabCommande .prix {
+  justify-content: center;
+  text-align: center;
+  width: 24%;
+}
+
+.detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 95%;
+}
+.detail__titres {
+  margin: 0;
+  padding: 0;
+}
+.detail .imageurl {
+  width: 50%;
+}
+.detail .description {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 80%;
+  padding: 5px;
+}
+.detail .description p {
+  margin: 5px;
+  font-size: 16px;
+}
+@media screen and (max-width: 400px) {
+  .detail .description {
+    flex-direction: column;
+  }
+}
+.detail .block {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+}
+.detail .block .selecteur {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding: 5px;
+  font-size: 16px;
+}
+.detail .block .selecteur select {
+  margin-left: 5px;
+  min-width: 100px;
+  height: 25px;
+  background-color: #e6e6e6;
+  padding: 0;
+}
+.detail .block .selecteur select option {
+  text-align: center;
+}
+@media screen and (max-width: 400px) {
+  .detail .block .selecteur {
+    flex-direction: column;
+  }
+  .detail .block .selecteur select {
+    margin-left: auto;
+    width: 100%;
+  }
+}
+.detail .block div {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 5px;
+}
+.detail .block div p {
+  margin: 5px;
+  font-size: 16px;
+}
+.detail button {
+  width: 200px;
+  height: 50px;
+  border-radius: 20px;
 }
 
 .loading-spinner {

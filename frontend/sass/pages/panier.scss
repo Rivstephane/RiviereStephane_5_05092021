@@ -1,0 +1,40 @@
+#tableauxCommandeproduit{
+    overflow: hidden;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    & .tabCommande, #tabCommande{
+        border: 2px solid darken(white, 45%);
+        margin: 0;
+        overflow: hidden;
+        height: 100px;
+        display: flex;
+        justify-content: stretch;
+        align-items: center;
+        & .imageurl{
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            display: flex;
+            width: 24%;
+            & img{
+                max-width:180px;
+            }
+        }
+        & .name{
+            justify-content: center;
+            text-align: center;
+            width: 24%;
+        } 
+        & .quantiter{
+            justify-content: center;
+            text-align: center;
+            width: 24%;
+        } 
+        & .prix{
+            justify-content: center;
+            text-align: center;
+            width: 24%;
+        }      
+    }
+}

@@ -12,3 +12,11 @@ a, p{
     color: black;
     font-weight: bold;
 }
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 5px;
+    padding: auto;
+}

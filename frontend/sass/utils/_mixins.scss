@@ -1,8 +1,8 @@
 /*@mixin mixin-name {
   css-property: value;
 }*/
-@mixin g-mobile-only{
-    @media screen and(min-width:map-get($breakpoints, g-mobile)){
+@mixin min-mobile-only{
+    @media screen and(max-width:map-get($breakpoints, min-mobile)){
         @content;
     }
 }

@@ -23,8 +23,39 @@
       </nav>
     </header>
     <main id="main">
-      <!--            Liste des produit           -->
-      <script type="text/javascript" src="../js/panier.js"></script>
+      <section id="tableauxCommandeproduit">
+      </section>
+      <!--            formulaire de contacte contacte           -->
+      <section id="formulaireContacte">
+          <h2>Formulaire à remplir pour valider votre commande.</h2>
+          <div class="contacteElement">
+            <div class="contacteElement__Block">
+              <label class="contacteElement__labelNom">Nom</label>
+              <input type="text" class="contacteElement__imput" id="inputNom" placeholder="Nom" required>
+            </div>
+            <div class="contacteElement__Block--prenom">
+              <label class="contacteElement__labelPrenom">Prénom</label>
+              <input type="text" class="contacteElement__imput" id="inputPrenom" placeholder="Prénom" required>
+            </div>
+            <div class="contacteElement__Block">
+              <label class="contacteElement__labelEmail">Email</label>
+              <input type="email" class="contacteElement__imput" id="inputEmail" placeholder="exemple@domaine.com" required>
+            </div>
+            <div class="contacteElement__Block">
+              <label class="contacteElement__adresse">Adresse</label>
+              <input type="text" class="contacteElement__imput" id="intputAddress"  placeholder="Numero, rue ..." required>
+            </div>
+            <div class="contacteElement__Block">
+              <label class="contacteElement__labelCodePostal">Code Postal</label>
+              <input type="text" class="contacteElement__imput" id="intputCodePostal" required>
+            </div>
+            <div class="contacteElement__Block">
+              <label class="contacteElement__labelVille">Ville</label>
+              <input type="text" class="contacteElement__imput" id="intputVille" placeholder="Ville"required>
+            </div>
+          </div>
+          <button id="validation" type="submit">Envoyer</button>
+      </section>
     </main>
 
     <footer>
@@ -37,5 +68,6 @@
         </div>
       </div>
     </footer>
+      <script type="text/javascript" src="../js/panier.js"></script>
   </body>
 </html>
