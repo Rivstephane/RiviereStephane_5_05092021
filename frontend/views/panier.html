@@ -23,38 +23,42 @@
       </nav>
     </header>
     <main id="main">
+      <section id="titres_pages">
+      </section>
       <section id="tableauxCommandeproduit">
       </section>
       <!--            formulaire de contacte contacte           -->
       <section id="formulaireContacte">
-          <h2>Formulaire à remplir pour valider votre commande.</h2>
-          <div class="contacteElement">
-            <div class="contacteElement__Block">
-              <label class="contacteElement__labelNom">Nom</label>
-              <input type="text" class="contacteElement__imput" id="inputNom" placeholder="Nom" required>
-            </div>
-            <div class="contacteElement__Block--prenom">
-              <label class="contacteElement__labelPrenom">Prénom</label>
-              <input type="text" class="contacteElement__imput" id="inputPrenom" placeholder="Prénom" required>
-            </div>
-            <div class="contacteElement__Block">
-              <label class="contacteElement__labelEmail">Email</label>
-              <input type="email" class="contacteElement__imput" id="inputEmail" placeholder="exemple@domaine.com" required>
-            </div>
-            <div class="contacteElement__Block">
-              <label class="contacteElement__adresse">Adresse</label>
-              <input type="text" class="contacteElement__imput" id="intputAddress"  placeholder="Numero, rue ..." required>
-            </div>
-            <div class="contacteElement__Block">
-              <label class="contacteElement__labelCodePostal">Code Postal</label>
-              <input type="text" class="contacteElement__imput" id="intputCodePostal" required>
-            </div>
-            <div class="contacteElement__Block">
-              <label class="contacteElement__labelVille">Ville</label>
-              <input type="text" class="contacteElement__imput" id="intputVille" placeholder="Ville"required>
-            </div>
+        <h2>Completer le formulaire et valider votre commande</h2>
+        <form id="formulaire" onsubmit="validCommande()">
+          <div class="form-group">
+            <label for="firstName">Prenom: </label>
+            <input type="text" class="form-control" id="firstName" name="firstName" placeholder="prenom" pattern="[a-zA-Z]{1,20}" title="1 à 20 lettres" required>
           </div>
-          <button id="validation" type="submit">Envoyer</button>
+          <div class="form-group">
+            <label for="lastName">Nom : </label>
+            <input type="text" class="form-control" id="lastName" name="lastName" placeholder="nom" pattern="[a-zA-Z]{1,20}" title="1 à 20 lettres" required>
+          </div>
+          <div class="form-group">
+            <label for="address">Adresse:</label>
+            <input type="text" class="form-control" id="address" name="address" placeholder="Votre adresse" pattern="[a-zA-Z0-9- -' ]{1,100}" title="1 à 100 lettres" required>
+          </div>
+          <div class="form-group">
+            <label for="zip">Code postal:</label>
+            <input type="text" class="form-control" id="zip" name="zip" placeholder="Code postal" pattern="[0-9]{5,5}" title="5 chiffres" required>
+          </div>
+          <div class="form-group">
+            <label for="city">Ville:</label>
+            <input type="text" class="form-control" id="city" name="city" placeholder="city" pattern="[a-zA-Z -_]{1,20}" title="1 à 20 lettres" required>
+          </div>
+          <div class="form-group">
+            <label for="email">e-mail : </label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Votre e-mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-secondary">Validée la commande</button>
+          </div>
+        </form>
       </section>
     </main>
 

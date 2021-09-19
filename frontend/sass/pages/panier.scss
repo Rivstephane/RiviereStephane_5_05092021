@@ -3,38 +3,68 @@
     width: 90%;
     display: flex;
     flex-direction: column;
-    & .tabCommande, #tabCommande{
-        border: 2px solid darken(white, 45%);
-        margin: 0;
-        overflow: hidden;
-        height: 100px;
+    & h3{
         display: flex;
-        justify-content: stretch;
-        align-items: center;
-        & .imageurl{
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
+        justify-content: end;
+    }
+    & .tabCommande{
+        & thead{
+            font-weight: bold;
+            font-size: 16px;
+        }
+        & tbody{
+            & tr{
+                & td{
+                    & div{
+                        overflow: hidden;
+                        height: 100px;
+                            border-radius: 20px;
+                        & .imagPanier{
+                            width: 180px;
+                        }
+                    }
+                }
+                & .name{
+                    justify-content: center;
+                    text-align: center;
+                    width: 24%;
+                } 
+                & .quantiter{
+                    justify-content: center;
+                    text-align: center;
+                    width: 24%;
+                } 
+                & .prix{
+                    justify-content: center;
+                    text-align: center;
+                    width: 24%;
+                }   
+                
+            }
+
+        }
+    }
+}
+#formulaireContacte{
+    display: flex;
+    flex-direction:column;
+    & #formulaire{
+        display: flex;
+        flex-direction:column;
+        & div{
             display: flex;
-            width: 24%;
-            & img{
-                max-width:180px;
+            justify-content: space-evenly;
+            align-items: center;
+            & label{
+                width: 59%;
+            }
+            & input{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                width: 59%;
             }
         }
-        & .name{
-            justify-content: center;
-            text-align: center;
-            width: 24%;
-        } 
-        & .quantiter{
-            justify-content: center;
-            text-align: center;
-            width: 24%;
-        } 
-        & .prix{
-            justify-content: center;
-            text-align: center;
-            width: 24%;
-        }      
     }
 }
