@@ -1,4 +1,4 @@
-/*          class produit           */
+//      crations des class
 class produit {
   constructor(id, name,price,liste_choix,description,imageUrl) {
       this.id = id ;
@@ -15,6 +15,7 @@ class produitCommander {
         this.quantiter = quantiter ;
     }
 }
+//      initialisation des instance
 let itemCommande = new produitCommander;
 let item = new produit;
 let quantiter;
@@ -23,13 +24,9 @@ const recupPanier = localStorage.getItem("tabPanier");
 let validation = false;
 let totalPrix = 0 ;
 if (recupPanier != null ) tabPanier = JSON.parse(recupPanier);
-// ====================================
-//creation de mes element de page
+//      selection de mes element de page
 const sectionTabCommande = document.getElementById('tableauxCommandeproduit');
 const newSection = document.getElementById('titres_pages');
-
-
-// ====================================
 //      integrations a la page
 let newDivTitres = document.createElement('div');
 newDivTitres.classList.add('div_titres');
@@ -40,16 +37,17 @@ newDivTitres.append(titresPages);
 newSection.append(newDivTitres);
 
 // ====================================
-// recuperation de la commande dans local storage
+//      recuperation des informatiopn produit pour la commande
 let id;
 let testP = [];
 let testdiv = [];
 let y = 0;
 fetch("http://localhost:3000/api/furniture")
-  //     conversion des données en JSON
+//     conversion des données en JSON
   .then(reponse => reponse.json())
   .then(data => {
     items = data;
+//      creation du tableaux pour la liste des produits a commander
     if(tabPanier.length){
       let tabCommande = document.createElement("table");
       tabCommande.classList.add("tabCommande");
@@ -66,12 +64,11 @@ fetch("http://localhost:3000/api/furniture")
         </tr>
         `;
         tabCommande.append(designationElementTabCommande);
-      //        creations tableaux
-      // pour chaque element dans mon panier
-      for(i = 0; i< tabPanier.length; i++){// pour chaque element dans mon panier
+//      ajout au tableaux chaque element dans mon panier
+      for(i = 0; i< tabPanier.length; i++){
         id = tabPanier[i]._id;
         quantiter = tabPanier[i].quantiter;
-        for( let j in items){// compares elements du panier avec basse de données
+        for( let j in items){// compares elements du panier avec la basse de données
           if(id == items[j]._id){// elements panier trouver dans la basse de données
             item = items[j];
             totalPrix += quantiter *item.price/100;
@@ -94,27 +91,30 @@ fetch("http://localhost:3000/api/furniture")
               </td>
             </tr>
             `;
-            tabCommande.append(ElementTabCommande);          
+            tabCommande.append(ElementTabCommande);   //        integrations dans le html       
           };     
         }
       }
+      //      calcul du prix total de la commande
       let divTotalPrix = document.createElement("h3");
       divTotalPrix.innerHTML = "PrixTotal: " + totalPrix + "€";
       sectionTabCommande.append(divTotalPrix);
       localStorage.setItem("totalPrix",totalPrix);
     }
+    //      si le panier est vide
     else{
       let newInfo = document.createElement('h1');
       newInfo.innerHTML = "Panier Vide";
       sectionTabCommande.append(newInfo);
     }
   })
+  //      message d'erreur si pas de reponse
   .catch(error => {
     let newInfo = document.createElement('h1');
     newInfo.innerHTML = " erreur de chargement";
     sectionTabCommande.append(newInfo);
   })
-  // supression de l'element du panier
+  //    fonction de supression de l'element du panier
 function supElementPanier(iden){
   let newTabPanier=[];
   if(tabPanier.length <= 1){
@@ -137,7 +137,7 @@ function supElementPanier(iden){
     document.location.reload();
   }
 
-  // envoie des information a la bdd
+  //      fonction d'envoie des information a la bdd
 function validCommande() {  
   event.preventDefault();
   if(document.forms['formulaire'] !="") {
@@ -172,13 +172,16 @@ function validCommande() {
         localStorage.setItem("orderId", response.orderId);
         localStorage.setItem("firstName", response.contact.firstName);
         totalPrix = localStorage.getItem("totalPrix");
+        //      ouverture de la page de confirmation avec les donées dans l'url
         window.location.href = "/frontend/views/confirmation_commande.html?id="+response.orderId +"&prenom="+response.contact.firstName+"&totalPrix="+totalPrix;
       }
+      //      si il y as une erreure dans l'envoie des données
       else{
         alert(`Votre commande comporte une erreur`)
       }
     });      
   }
+  // si le formulaire est vide
   else {
     alert("Veuillez remplir le formulaire !")
   }

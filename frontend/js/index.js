@@ -1,4 +1,4 @@
-/*          class produit           */
+//      class produit
 class produit {
   constructor(id, name,price,liste_choix,description,imageUrl) {
     this.id = id ;
@@ -28,30 +28,31 @@ newParagraphes.innerText = "Liste Produit Disponible";
 newTitres.append(newParagraphes);
 newSection.append(newTitres);
   
-  // ====================================
-/*          recuperation de mon catalogue de produit           */
+// ====================================
+//          recuperation de mon catalogue de produit
 
 fetch("http://localhost:3000/api/furniture")
   //     conversion des données en JSON
   .then(reponse => reponse.json())
 
   // ====================================
-    /*          integration au document de mon objet         */
+//          integration au document de mon objet
   .then(data => {
     items = data;
     //      Creation d'un tableaux de produit dans la page html
     let newUl = document.createElement('ul');
     newUl.classList.add('produit__liste');
     for(let i in items) {
-      // selecttion d'un produit
+      //      selecttion d'un produit
       let item = new produit;
       item = items[i];
       let newLi = document.createElement('li');
-      // incorporation de l'id du produit dans html de liaison vers detail
+      //      incorporation de l'id du produit dans html de liaison vers detail
       let newRef = document.createElement('a');
       newLi.classList.add('produit__liste__element');
       newRef.id = item._id;
       newRef.href = "detail.html?id=" + item._id ;
+      //      creation d'un block contenant un produit avec image nom et prix
       let newBlock = document.createElement('div');
       newBlock.classList.add('block');
       let newName = document.createElement('div');
@@ -60,9 +61,6 @@ fetch("http://localhost:3000/api/furniture")
       let newPrice = document.createElement('div');
       newPrice .classList.add('price');
       newPrice.innerText = item.price/100 + " €";
-      let newDescription = document.createElement('div');
-      newDescription.classList.add('description');
-      newDescription.innerText = item.description;
       let img = document.createElement("img");
       img.src = item.imageUrl;
       img.alt = item.name;
@@ -80,6 +78,7 @@ fetch("http://localhost:3000/api/furniture")
     newSection.append(newUl);
     body.append(newSection);
     }) 
+    //      message d'erreur si pas de reponse
   .catch(error => {
     newParagraphes = " Erreure de Chargement des produits";
     newDiv.classList.add('erreur');

@@ -1,40 +1,41 @@
-/*          class produit           */
+//      class produit
 class produit {
-    constructor(id, name,price,liste_choix,description,imageUrl) {
-        this.id = id ;
-        this.name = name ;
-        this.price = price ;
-        this.liste_choix = liste_choix;
-        this.description = description;
-        this.imageUrl = imageUrl;
-    }
+  constructor(id, name,price,liste_choix,description,imageUrl) {
+    this.id = id ;
+    this.name = name ;
+    this.price = price ;
+    this.liste_choix = liste_choix;
+    this.description = description;
+    this.imageUrl = imageUrl;
   }
-class produitCommander {
-    constructor(_id, quantiter) {
-        this._id = _id ;
-        this.quantiter = quantiter ;
-    }
 }
+//      class produit a commander
+class produitCommander {
+  constructor(_id, quantiter) {
+    this._id = _id ;
+    this.quantiter = quantiter ;
+  }
+}
+//      initialisation d'instance
 let item = new produit;
 let itemCommande = new produitCommander;
 let tabPanier= [];
 let x = 0;
+let quantiterDesirer = 1;
+//      recuperation d'information dans localstorage
 const recupPanier = localStorage.getItem("tabPanier");
 if (recupPanier != null ){
   tabPanier = JSON.parse(recupPanier)
   x = tabPanier.length;
 };
-let quantiterDesirer = 1;
 localStorage.setItem('quantiter', quantiterDesirer );
 // ====================================
-  //creation de mes element de page
+  //      creation de mes element de page
 const body = document.querySelector('main');
 let newDiv = document.createElement('div');
 let newDescriptionTitre = document.createElement('h3');
 let newDescriptionTexte = document.createElement('p');
-
-// ====================================
-// titres pages
+//      titres pages
 let newSection = document.createElement('div');
 newSection.classList.add('detail');
 let newTitres = document.createElement('div');
@@ -44,9 +45,7 @@ newParagraphes.innerText = "Details produit";
 newTitres.append(newParagraphes);
 newSection.append(newTitres);
 body.append(newSection);
-
-// ====================================
-// recuperation de l'id objet dans la page
+//      recuperation de l'id objet dans la page
 let params = (new URL(document.location)).searchParams;
 var id = params.get("id");
 //      recuperation de mon objet dans la basse de données
@@ -55,7 +54,8 @@ fetch("http://localhost:3000/api/furniture/"+id)
   .then(reponse => reponse.json())
   .then(data => {
     item = data;
-// integration de l'objet a ma page
+//      integration de l'objet a ma page avec nom, url de l'image, description , 
+//      option du produit, prix et choix d'une quantiter a commander
     let newBlock = document.createElement('div');
     newBlock.classList.add('block');
     let newName = document.createElement('h2');
@@ -78,13 +78,13 @@ fetch("http://localhost:3000/api/furniture/"+id)
     newLabelTitre.innerHTML = "Chois du vernis:";
     let newLabel = document.createElement('label');
     newLabel.classList.add("selecteurOption");
-    // liste des option
+//      liste des option
     for(let y in item.varnish){
         let newoption = document.createElement('option');
         newSelecteur.appendChild(newoption);
         newoption.textContent = item.varnish[y]; 
     }
-    // partie commande
+//      partie commande
     let newDivCommande = document.createElement('label');
     newDivCommande.classList.add("selecteur");
     newDivCommande.id = 'selecteur';
@@ -105,6 +105,7 @@ fetch("http://localhost:3000/api/furniture/"+id)
     newPrice.textContent = item.price/100 + " €";
     let blockBouton = document.createElement('div');
     blockBouton.classList.add('block1');
+//      bouton de commande validation et commande continuer achat
     let boutonValidationCommande = document.createElement('button');
     boutonValidationCommande.classList.add("ajout_panier");
     boutonValidationCommande.innerHTML = "Ajouter et valider la commande";
@@ -185,9 +186,9 @@ fetch("http://localhost:3000/api/furniture/"+id)
       localStorage.setItem('tabPanier', miseEnFormePanier );
       location.href="panier.html";
     });
-      localStorage.clear();
   })
-    .catch(error => {
+  //      message d'erreur si pas de reponse
+  .catch(error => {
     newParagraphes = " Erreure de Chargement des produits";
     newDiv.classList.add('erreur');
     newDiv.append(newParagraphes);
