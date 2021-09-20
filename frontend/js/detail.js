@@ -112,7 +112,6 @@ fetch("http://localhost:3000/api/furniture/"+id)
     boutonContinuerAchat.classList.add("continuer_achat");
     boutonContinuerAchat.innerHTML = "Ajouter et Poursuivre les achat";
     boutonContinuerAchat.click = "index.html" ;
-  
     //      mise en place des element de la page
     newSection.append(newName);
     newImg.appendChild(img);
@@ -195,4 +194,3 @@ fetch("http://localhost:3000/api/furniture/"+id)
     newSection.append(newDiv);
     body.append(newSection);
   })
-  

@@ -108,7 +108,6 @@ fetch("http://localhost:3000/api/furniture")
       newInfo.innerHTML = "Panier Vide";
       sectionTabCommande.append(newInfo);
     }
-    
   })
   .catch(error => {
     let newInfo = document.createElement('h1');
@@ -178,7 +177,7 @@ function validCommande() {
       else{
         alert(`Votre commande comporte une erreur`)
       }
-    });       
+    });      
   }
   else {
     alert("Veuillez remplir le formulaire !")

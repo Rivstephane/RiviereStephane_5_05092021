@@ -1,4 +1,3 @@
-
 const body = document.querySelector('.confirmation');
 // ====================================
 // recuperation de l'id objet dans la page
@@ -10,7 +9,7 @@ let titresValidation = document.createElement('h1');
 titresValidation.innerText = "Commande Validée";
 let divValidation = document.createElement('div');
 let paragraphesValidation = document.createElement('p');
-paragraphesValidation.innerText = "Merci pour votre commande " + prenom +" La commande n° :"+ id +" et d'un montant de : " + totalPrix +"€";
+paragraphesValidation.innerText = "Merci pour votre commande " + prenom + " La commande n° :" + id + " et d'un montant de : " + totalPrix + "€";
 divValidation.append(titresValidation);
 divValidation.append(paragraphesValidation);
 body.append(divValidation);

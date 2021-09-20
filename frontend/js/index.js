@@ -43,9 +43,11 @@ fetch("http://localhost:3000/api/furniture")
     let newUl = document.createElement('ul');
     newUl.classList.add('produit__liste');
     for(let i in items) {
+      // selecttion d'un produit
       let item = new produit;
       item = items[i];
       let newLi = document.createElement('li');
+      // incorporation de l'id du produit dans html de liaison vers detail
       let newRef = document.createElement('a');
       newLi.classList.add('produit__liste__element');
       newRef.id = item._id;
