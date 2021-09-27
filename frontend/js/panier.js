@@ -119,7 +119,6 @@ function supElementPanier(iden){
   let newTabPanier=[];
   if(tabPanier.length <= 1){
     tabPanier = [];
-    console.log(tabPanier);
   }else{
     console.log(tabPanier);
     for(let i=0; i<tabPanier.length; i++) {
@@ -127,9 +126,6 @@ function supElementPanier(iden){
         newTabPanier.push(tabPanier[i]);
       }
     }
-  console.log(iden);
-  console.log(tabPanier.length);
-  console.log(newTabPanier);
     tabPanier = newTabPanier;
   }
   const miseEnFormePanier = JSON.stringify(tabPanier);

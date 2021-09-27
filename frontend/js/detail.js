@@ -189,7 +189,7 @@ fetch("http://localhost:3000/api/furniture/"+id)
   })
   //      message d'erreur si pas de reponse
   .catch(error => {
-    newParagraphes = " Erreure de Chargement des produits";
+    newParagraphes = " Erreure de Chargement du produit";
     newDiv.classList.add('erreur');
     newDiv.append(newParagraphes);
     newSection.append(newDiv);
